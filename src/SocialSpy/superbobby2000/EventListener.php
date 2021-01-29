@@ -23,11 +23,11 @@ class EventListener implements Listener {
         $player = $event->getPlayer();
         $m = substr("$message", 0, 1);
         if ($m == '/') {
-            $console->sendMessage('§9SocialSpy §6»§r ' . TextFormat::GRAY . TextFormat::ITALIC . $player->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . $message);
+            $console->sendMessage('§9ManeSpy §6»§r ' . TextFormat::GRAY . TextFormat::ITALIC . $player->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . $message);
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
                 if (in_array($p->getName(), Main::$SocialSpy)) {
                     if (!$player->hasPermission("socialspy.hide")) {
-                        $p->sendMessage('§9SocialSpy §6»§r ' . TextFormat::GRAY . TextFormat::ITALIC . $player->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . $message);
+                        $p->sendMessage('§9ManeSpy§6»§r ' . TextFormat::GRAY . TextFormat::ITALIC . $player->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . $message);
                     }
                 }
             }
