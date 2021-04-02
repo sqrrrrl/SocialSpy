@@ -21,6 +21,8 @@ class Main extends PluginBase {
     protected static $main;
 
     public function onEnable() {
+        @mkdir($this->getDataFolder());
+        $this->saveDefaultConfig();
         self::$main = $this;
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
     }
