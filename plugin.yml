@@ -17,4 +17,3 @@ permissions:
   socialspy.hide:
     description: "hide your commands from SocialSpy"
     default: op
-    testd
