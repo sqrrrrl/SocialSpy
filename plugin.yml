@@ -1,6 +1,6 @@
 name: SocialSpy
 api: [3.0.0]
-version: 1.0.1
+version: 1.0.2
 main: SocialSpy\superbobby2000\Main
 author: superbobby2000
 description: Allows you to see commands.
