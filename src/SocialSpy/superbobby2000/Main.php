@@ -27,6 +27,12 @@ class Main extends PluginBase {
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
     }
 
+    public function onDisable() {
+        foreach(self::$SocialSpy as $item){
+            unset(self::$SocialSpy[array_search($item, self::$SocialSpy)]);
+        }
+    }
+
     public static function getMain(): self {
         return self::$main;
     }
