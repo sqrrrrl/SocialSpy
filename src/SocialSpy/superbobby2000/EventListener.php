@@ -3,6 +3,7 @@
 namespace SocialSpy\superbobby2000;
 
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
@@ -12,6 +13,12 @@ use function in_array;
 
 class EventListener implements Listener {
 
+    public function onLeave(PlayerQuitEvent $event){
+        $name = $event->getPlayer()->getName();
+        if (in_array($name, Main::$SocialSpy)){
+            unset(Main::$SocialSpy[array_search($name, Main::$SocialSpy)]);
+        }
+    }
 
     public function onPlayerCommand(PlayerCommandPreprocessEvent $event) {
         $console = new ConsoleCommandSender();
