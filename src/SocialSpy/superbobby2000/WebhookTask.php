@@ -13,7 +13,7 @@ class WebhookTask extends AsyncTask{
         $this->webhook_content = $webhook_content;
     }
 
-    public function onRun() {
+    public function onRun(): void {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $this->webhook_url);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(unserialize($this->webhook_content)));
