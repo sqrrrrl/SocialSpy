@@ -5,7 +5,7 @@ namespace SocialSpy\superbobby2000;
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
-use pocketmine\Player;
+use pocketmine\Player\Player;
 use pocketmine\utils\TextFormat as C;
 
 use function in_array;
@@ -16,11 +16,11 @@ class Main extends PluginBase {
 
     public const PREFIX = "§9SocialSpy §6»§r ";
 
-    public static $SocialSpy = [];
+    public static array $SocialSpy = [];
 
-    protected static $main;
+    protected static self $main;
 
-    public function onEnable() {
+    public function onEnable(): void {
         @mkdir($this->getDataFolder());
         $this->saveDefaultConfig();
         self::$main = $this;
