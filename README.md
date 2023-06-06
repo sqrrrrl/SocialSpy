@@ -1,12 +1,12 @@
 # SocialSpy
-This is a PocketMine-MP plugin who allow you to spy players commands the commands are also logged into the console
+This plugin allows you to spy on the commands executed by your players
 
 # Commands
 /socialspy or /ss (turn on socialspy)
 
 # Permission
 socialspy.command (allow you to use socialspy commands)
-socialspy.hide (hide the commands you use from players who have SocialSpy on)
+socialspy.hide (hides your commands from other players using SocialSpy)
 
 [![](https://poggit.pmmp.io/shield.state/SocialSpy)](https://poggit.pmmp.io/p/SocialSpy)
 

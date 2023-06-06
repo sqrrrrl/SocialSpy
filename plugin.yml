@@ -1,8 +1,8 @@
 name: SocialSpy
-api: [3.0.0]
-version: 1.0.3
-main: SocialSpy\superbobby2000\Main
-author: superbobby2000
+api: [5.0.0]
+version: 3.0.0
+main: SocialSpy\sqrrl\Main
+author: sqrrl
 description: Allows you to see commands.
 commands:
   socialspy:
