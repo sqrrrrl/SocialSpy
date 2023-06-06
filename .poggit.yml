@@ -1,8 +1,9 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/superbobby2000/SocialSpy
 build-by-default: true
 branches:
-- master
-- "PM-4"
+- "PM3"
+- "PM4"
+- "PM5"
 projects:
   SocialSpy:
     path: ""

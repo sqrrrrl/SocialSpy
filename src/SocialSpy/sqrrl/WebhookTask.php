@@ -1,19 +1,19 @@
 <?php
 
-namespace SocialSpy\superbobby2000;
+namespace SocialSpy\sqrrl;
 
 use pocketmine\scheduler\AsyncTask;
 
 class WebhookTask extends AsyncTask{
 
-    private $webhook_url, $webhook_content;
+    private string $webhook_url, $webhook_content;
 
     public function __construct($webhook_url, $webhook_content){
         $this->webhook_url = $webhook_url;
         $this->webhook_content = $webhook_content;
     }
 
-    public function onRun() {
+    public function onRun(): void {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $this->webhook_url);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(unserialize($this->webhook_content)));
