@@ -20,6 +20,10 @@ class EventListener implements Listener {
         }
     }
 
+    /**
+     * @param CommandEvent $event
+     * @priority MONITOR
+     */
     public function onPlayerCommand(CommandEvent $event) {
         $console = new ConsoleCommandSender(Main::getMain()->getServer(), Main::getMain()->getServer()->getLanguage());
         $command = $event->getCommand();
