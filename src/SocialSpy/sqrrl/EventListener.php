@@ -30,7 +30,7 @@ class EventListener implements Listener {
         $console = new ConsoleCommandSender($server, $server->getLanguage());
         $command = $event->getCommand();
         $sender = $event->getSender();
-        $console->sendMessage('§9SocialSpy §6»§r ' . TextFormat::GRAY . TextFormat::ITALIC . $sender->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . "/" . $command);
+        $console->sendMessage("§9SocialSpy §6»§r " . TextFormat::GRAY . TextFormat::ITALIC . $sender->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . "/" . $command);
         if ($this->plugin->getConfig()->get("webhook") == "on"){
             if (!$sender->hasPermission("socialspy.hide")) {
                 $webhook_url = $this->plugin->getConfig()->get("url");
@@ -44,7 +44,7 @@ class EventListener implements Listener {
         foreach ($server->getOnlinePlayers() as $player) {
             if ($this->plugin->isSocialSpyEnabled($player->getName())) {
                 if (!$sender->hasPermission("socialspy.hide")) {
-                    $player->sendMessage('§9SocialSpy §6»§r ' . TextFormat::GRAY . TextFormat::ITALIC . $sender->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . "/" . $command);
+                    $player->sendMessage("§9SocialSpy §6»§r " . TextFormat::GRAY . TextFormat::ITALIC . $sender->getName() . TextFormat::RESET . ": " . TextFormat::AQUA . "/" . $command);
                 }
             }
         }
