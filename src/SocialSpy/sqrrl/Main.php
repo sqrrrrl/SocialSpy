@@ -8,27 +8,26 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\utils\TextFormat as C;
 
-use function in_array;
 use function strtolower;
-use function array_search;
 
 class Main extends PluginBase {
 
     public const PREFIX = "§9SocialSpy §6»§r ";
 
-    public static array $SocialSpy = [];
-
-    protected static self $main;
+    private array $socialSpy = [];
 
     public function onEnable(): void {
         @mkdir($this->getDataFolder());
         $this->saveDefaultConfig();
-        self::$main = $this;
-        $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
 
-    public static function getMain(): self {
-        return self::$main;
+    public function isSocialSpyEnabled(string $playerName): bool {
+        return isset($this->socialSpy[$playerName]);
+    }
+
+    public function disableSocialSpy(string $playerName): void {
+        unset($this->socialSpy[$playerName]);
     }
 
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool {
@@ -46,11 +45,11 @@ class Main extends PluginBase {
             return false;
         }
 
-        if(!in_array($name, self::$SocialSpy)) {
-            self::$SocialSpy[] = $name;
+        if(!isset($this->socialSpy[$name])) {
+            $this->socialSpy[$name] = true;
             $sender->sendMessage(self::PREFIX . C::GREEN . "You have enabled SocialSpy");
         }else{
-            unset(self::$SocialSpy[array_search($name, self::$SocialSpy)]);
+            $this->disableSocialSpy($name);
             $sender->sendMessage(self::PREFIX . C::DARK_RED . "You have disabled SocialSpy");
         }
         return true;
