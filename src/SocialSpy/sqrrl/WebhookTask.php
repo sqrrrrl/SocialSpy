@@ -14,10 +14,10 @@ class WebhookTask extends AsyncTask{
 
     public function onRun(): void {
         $webhookError = null;
-        Internet::postURL($this->webhook_url, json_encode(igbinary_unserialize($this->webhook_content)), 10, ['Content-Type: application/json'], $err);
+        Internet::postURL($this->webhook_url, json_encode(igbinary_unserialize($this->webhook_content)), 10, ["Content-Type: application/json"], $err);
         $this->setResult($webhookError);
     }
-    
+
     public function onCompletion(): void {
         $webhookError = $this->getResult();
         if ($webhookError !== null) {
